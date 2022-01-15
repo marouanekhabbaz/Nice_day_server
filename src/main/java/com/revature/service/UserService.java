@@ -40,4 +40,26 @@ public class UserService {
 		return user;
 	}
 	
+	public void deleteUser(int id) {
+		userRepo.deleteById(id);
+	}
+	
+	public User findUserByEmailAndPassWord(String email , String passWord) {
+		 
+		User user =		userRepo.findByEmailAndPassWord(email, passWord).get(0);
+		
+		return user;
+	}
+	
+	
+	public User findUserByEmail(String email) {
+		return  userRepo.findByEmail(email).get(0);
+				
+	}
+	
+	
+	
+	
+	
+	
 }

@@ -14,7 +14,6 @@ public interface MemoryRepository  extends JpaRepository<Memory, Integer> {
 	
 	List<Memory> findAllByUser(int userId);
 	
-//	@Query("delete from Memory m where m.memoryId=:id")
-//	int deleteByMemoryId(int id );
+	
 
 }

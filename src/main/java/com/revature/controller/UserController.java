@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -48,6 +49,39 @@ public class UserController {
 	}
 	
 	
+	@GetMapping("/find")
+	public User findUserByEmailAndPassWord(@RequestBody User user) {
+		
+		return userServ.findUserByEmailAndPassWord(user.getEmail(), user.getPassWord());
+	}
+	
+	
+	@GetMapping("/find/{email}")
+	public User findUserByEmail(@PathVariable("email") String email) {
+		
+		return userServ.findUserByEmail(email);
+	}
+	
+	@PutMapping("/{id}")
+	public User updateUserById(@RequestBody User user) {
+		
+		System.out.println(user);
+
+		return userServ.addUser(user);
+		
+	}
+	
+	
+	
+	@DeleteMapping("/{id}")
+	public void deleteUserById(@PathVariable("id") int id) {
+		
+		 userServ.deleteUser(id);
+	}
+	
+	
+	
+	
 	@GetMapping("/{id}/memories")
 	public List<Memory> findUserMemories(@PathVariable("id") int id) {
 		return userServ.getByUserId(id).getMemories();
@@ -61,6 +95,8 @@ public class UserController {
 	}
 	
 	
+	
+	
 	@PostMapping("/{id}/addmemory")
 	public int addMemoryToUser(@RequestBody Memory memory , @PathVariable("id") int id) { 
 		
@@ -70,20 +106,25 @@ public class UserController {
 	}
 	
 	
+	@PutMapping("/{userId}/memory/{memoryId}")
+	public Memory updateMemoryById(@RequestBody Memory memory) {
+
+		return memoryService.addMemory(memory);
+		
+	}
+	
 	
 	@DeleteMapping("/{userId}/memory/{memoryId}")
 	public ResponseEntity  deleteMemory(@PathVariable("userId") int userId , @PathVariable("memoryId") int memoryId ) {
 			
-		
-//		System.out.println(memoryId);
-		
+
 		List<Memory> memories =	userServ.getByUserId(userId).getMemories();
 		
 		System.out.println(memories);
 		
 		boolean isPresent =	memories.stream().anyMatch(m -> m.getId() == memoryId);
 		 
-//		System.out.println(isPresent);
+
 		
 				 
 		 if(isPresent) {
@@ -98,6 +139,13 @@ public class UserController {
 		 }
 		
 	}
+	
+	
+	
+	
+	
+
+	
 	
 
 }
