@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,7 @@ import com.revature.service.UserService;
 
 @RestController
 @RequestMapping("/users")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UserController {
 	
 	
@@ -49,10 +51,12 @@ public class UserController {
 	}
 	
 	
-	@GetMapping("/find")
+	
+	@PostMapping("/find")
 	public User findUserByEmailAndPassWord(@RequestBody User user) {
 		
 		return userServ.findUserByEmailAndPassWord(user.getEmail(), user.getPassWord());
+		
 	}
 	
 	
@@ -102,7 +106,7 @@ public class UserController {
 		
 		memory.setUser(userServ.getByUserId(id));
 		
-		return memoryService.addMemory(memory).getId();
+		return memoryService.addMemory(memory).getMemoryId();
 	}
 	
 	
@@ -122,7 +126,7 @@ public class UserController {
 		
 		System.out.println(memories);
 		
-		boolean isPresent =	memories.stream().anyMatch(m -> m.getId() == memoryId);
+		boolean isPresent =	memories.stream().anyMatch(m -> m.getMemoryId()== memoryId);
 		 
 
 		
