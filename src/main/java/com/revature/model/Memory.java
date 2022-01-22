@@ -13,15 +13,23 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.ForeignKey;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.revature.controller.MemoryController;
 
 
 @Entity
 @Table(name="memories")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 public class Memory {
+	
+	
+	private static final Logger log = LoggerFactory.getLogger(MemoryController.class);
+	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="memory_id")

@@ -55,5 +55,6 @@ class NiceDayApplicationTests {
 //		assertEquals("kevin", testResult.getFirstName());
 		
 	}
+	
 
 }

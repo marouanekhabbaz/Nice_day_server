@@ -15,13 +15,19 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.revature.controller.MemoryController;
 
 @Entity
 @Table(name="users")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 public class User {
+	
+	private static final Logger log = LoggerFactory.getLogger(MemoryController.class);
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

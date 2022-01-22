@@ -75,6 +75,31 @@
 			<version>4.1.0</version>
 			<scope>test</scope>
 		</dependency>
+		
+		
+		<!-- SLF4J or Simple logging Facade for Java is not really a logging implementation, 
+		instead, it's an abstraction layer, which allows you to use any logging library 
+		in the back-end. 
+		
+		SLF4J makes your code independent of any particular logging API, which 
+		is a good thing for public API developers.-->
+		
+<!-- Read more: https://javarevisited.blogspot.com/2013/08/why-use-sl4j-over-log4j-for-logging-in.html#ixzz7Gt0pxKD2 -->
+		<dependency> <!--  SLF4J API -->
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.25</version>
+		</dependency>
+		<dependency> <!--  Binding Dependency (Bridge) to Log4j -->
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.25</version>
+		</dependency>
+		<dependency> <!-- Log4j Dependency -->
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
 
 
 	</dependencies>

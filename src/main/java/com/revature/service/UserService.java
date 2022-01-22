@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.revature.controller.MemoryController;
 import com.revature.data.MemoryRepository;
 import com.revature.data.UserRepository;
 
@@ -15,7 +16,7 @@ import com.revature.model.User;
 @Service
 public class UserService {
 	
-	private Logger log = LoggerFactory.getLogger(this.getClass());
+	private static final Logger log = LoggerFactory.getLogger(MemoryController.class);
 	
 	
 	

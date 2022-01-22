@@ -12,6 +12,8 @@ import com.revature.model.Memory;
 @Repository
 public interface MemoryRepository  extends JpaRepository<Memory, Integer> {
 	
+	
+	
 	List<Memory> findAllByUser(int userId);
 	
 	
