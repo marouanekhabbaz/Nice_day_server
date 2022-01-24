@@ -31,6 +31,23 @@ As a user I can :
 - Search for weather forecast based on different location
 - Save weather to their memories list 
 
+  ### API Documentation
+
+| Route                                                               | Method | Status Code | Description                                                         |
+| ------------------------------------------------------------------- | ------ | ----------- | ------------------------------------------------------------------- |
+| /users                                                              | GET    | 200         | Returns a list of all users                                          |
+| /users/:id                                                           | GET    | 200         | Returns a the user with the id                                      |
+| /users                                                            | POST   | 201         | Creates a new user                                                     |
+| /users/find                                                       | POST   | 200        | find a user by email and password                                       |
+| /users/:id                                                         | PUT    | 200         | Updates the status of the user for the given ID                       |
+| /users/find/{email}                                                 | POST    | 200         | find a user by email                                                |
+| /users/:id                                                         | DELETE    | 200         | Delete the user for the given ID                                   |
+| /users/{id}/memories                                               | GET    | 200                                 | get all memories for a user |
+| /users/{id}/addmemory                                       | POST   | 201         | Add a memory for the user with the given ID  |            
+| /users/{userId}/memory/{memoryId}                                      | GET   | 200    |get memory with given ID for a user  with given user id  |         
+| /users/{userId}/memory/{memoryId}                                      | Delete   | 204    |delete memory with given ID for a user  with given user id  |     
+
+
 
   ## Contributors
   * John Blalock
