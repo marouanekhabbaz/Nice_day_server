@@ -31,7 +31,9 @@ As a user I can :
 - Search for weather forecast based on different location
 - Save weather to their memories list 
 
-  ### API Documentation
+## API Documentation
+[REST API](http://ec2-18-206-252-36.compute-1.amazonaws.com:5000/users/)
+
 
 | Route                                                               | Method | Status Code | Description                                                         |
 | ------------------------------------------------------------------- | ------ | ----------- | ------------------------------------------------------------------- |
